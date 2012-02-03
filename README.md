@@ -18,7 +18,7 @@ template1.npg
 example.js
 
     var pages = require('node-pages').newInstance({
-      srcPath : '/path/to/template1.npg';
+      srcPath : '/path/to/template1.npg'
     });
 
     var arg = {name : 'tasogare'};
@@ -31,7 +31,7 @@ Custom tags (e.g. &lt;% %&gt; )
     var pages = require('node-pages').newInstance({
       openWord : '<%',
       closeWord : '%>',
-      srcPath : '/path/to/template2.npg';
+      srcPath : '/path/to/template2.npg'
     });
 
 template2.npg
@@ -46,7 +46,7 @@ Custom render arg name (e.g. it )
 
     var pages = require('node-pages').newInstance({
       renderArgName : 'it',
-      srcPath : '/path/to/template3.npg';
+      srcPath : '/path/to/template3.npg'
     });
 
     var arg = {name : 'tasogare'};
