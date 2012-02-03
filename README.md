@@ -1,6 +1,6 @@
 # node-pages
 
-A simple template engine.  
+A simple template engine for Node.js.  
 Cacheable and Trackable.  
 You can make breakpoints on the debugger.
 
