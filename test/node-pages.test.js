@@ -21,6 +21,14 @@ describe('node-pages', function() {
     }
   });
 
+  it('create new instance', function() {
+    fs.writeFileSync(templateFile, 'abcd');
+    pages = Pages.create({
+      srcPath : templateFile
+    });
+    assert.equal(pages.render(), 'abcd');
+  });
+
   it('output string', function() {
     fs.writeFileSync(templateFile, 'abcd');
     pages = Pages.newInstance({
