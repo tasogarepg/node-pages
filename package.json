@@ -1,13 +1,13 @@
 {
   "name": "node-pages",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple template engine. Cacheable and Trackable.",
   "keywords": ["template", "view"],
   "author": "tasogarepg <tasogare.pg@gmail.com>",
   "homepage": "http://github.com/tasogarepg/node-pages",
   "repository": "git://github.com/tasogarepg/node-pages.git",
   "main": "./lib/node-pages.js",
-  "engines": { "node": ">= 0.7.1 < 0.8.0" },
+  "engines": { "node": ">= 0.7.1" },
   "dependencies": {},
   "devDependencies": {
     "mocha": "*"
