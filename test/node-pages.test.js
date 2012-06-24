@@ -1,9 +1,10 @@
 var assert = require('assert');
 var fs = require('fs');
+var path = require('path');
 
 var Pages = require('../lib/node-pages.js');
 
-var templateFile = __dirname + '/template.npg';
+var templateFile = path.join(__dirname, 'template.npg');
 
 var pages = null;
 
@@ -114,13 +115,13 @@ describe('node-pages', function() {
   });
 
   it('nested', function() {
-    var templateFile1 = __dirname + '/template1.npg';
+    var templateFile1 = path.join(__dirname, 'template1.npg');
     fs.writeFileSync(templateFile1,
       '<html><body><?- arg ?></body></html>');
     var pages1 = Pages.newInstance({
       srcPath : templateFile1
     });
-    var templateFile2 = __dirname + '/template2.npg';
+    var templateFile2 = path.join(__dirname, 'template2.npg');
     fs.writeFileSync(templateFile2,
       '<p><?= arg.name ?></p>');
     var pages2 = Pages.newInstance({
@@ -171,6 +172,20 @@ describe('node-pages', function() {
     });
     var arg = {str1 : '1', str2 : '2'};
     assert.equal(pages.render(arg), '2');
+  });
+
+  it('custom work dir', function() {
+    var templateFile1 = path.join(__dirname, 'template1.npg');
+    fs.writeFileSync(templateFile1, 'abcd');
+    var pages1 = Pages.create({
+      workDir : 'work1',
+      srcPath : templateFile1
+    });
+    assert.equal(pages1.render(), 'abcd');
+    pages1.clear();
+    fs.unlinkSync(pages1.dstPath);
+    fs.rmdirSync(pages1.workDir);
+    fs.unlinkSync(templateFile1);
   });
 
 });
