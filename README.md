@@ -66,7 +66,7 @@ template3.npg
 
 ## Options
 
-  - `srcPath`         Template file path (absolute path)
+  - `srcPath`         Template file path
   - `openWord`        Open tag. ("<?" is default.)
   - `closeWord`       Close tag. ("?>" is default.)
   - `renderArgName`   Render arg name. ("arg" is default.)
