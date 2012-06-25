@@ -234,15 +234,20 @@ describe('node-pages', function() {
   });
 
   it('bench', function() {
-    fs.writeFileSync(templateFile,
+    var templateFile1 = path.join(__dirname, 'template1.npg');
+    fs.writeFileSync(templateFile1,
       '<? if(arg.val1 == arg.val2){ ?><?= arg.val1 ?><? }else{ ?><?= arg.val2 ?><? } ?>');
-    pages = Pages.newInstance({
-      srcPath : templateFile
-    });
+    var pages1 = null;
     var arg = {val1 : 'abcd', val2 : 'efgh'};
-    for (var i=0; i<400000; i++) {
-      pages.render(arg);
+    for (var i=0; i<100000; i++) {
+      pages1 = Pages.newInstance({
+        srcPath : templateFile
+      });
+      pages1.render(arg);
     }
+    pages1.clear();
+    fs.unlinkSync(pages1.dstPath);
+    fs.unlinkSync(templateFile1);
   });
 
 });
