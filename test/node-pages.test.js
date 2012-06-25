@@ -233,4 +233,16 @@ describe('node-pages', function() {
     fs.unlinkSync(templateFile1);
   });
 
+  it('bench', function() {
+    fs.writeFileSync(templateFile,
+      '<? if(arg.val1 == arg.val2){ ?><?= arg.val1 ?><? }else{ ?><?= arg.val2 ?><? } ?>');
+    pages = Pages.newInstance({
+      srcPath : templateFile
+    });
+    var arg = {val1 : 'abcd', val2 : 'efgh'};
+    for (var i=0; i<400000; i++) {
+      pages.render(arg);
+    }
+  });
+
 });
