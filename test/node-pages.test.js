@@ -104,6 +104,51 @@ describe('node-pages', function() {
     assert.equal(pages.render(arg), '&amp;&lt;&gt;&quot;');
   });
 
+  it('output number', function() {
+    fs.writeFileSync(templateFile, '<?= arg.num ?>');
+    pages = Pages.newInstance({
+      srcPath : templateFile
+    });
+    var arg = {num : 10};
+    assert.equal(pages.render(arg), '10');
+  });
+
+  it('output 0', function() {
+    fs.writeFileSync(templateFile, '<?= arg.num ?>');
+    pages = Pages.newInstance({
+      srcPath : templateFile
+    });
+    var arg = {num : 0};
+    assert.equal(pages.render(arg), '0');
+  });
+
+  it('output \'\'', function() {
+    fs.writeFileSync(templateFile, '<?= arg.val ?>');
+    pages = Pages.newInstance({
+      srcPath : templateFile
+    });
+    var arg = {val : ''};
+    assert.equal(pages.render(arg), '');
+  });
+
+  it('output undefined', function() {
+    fs.writeFileSync(templateFile, '<?= arg.val ?>');
+    pages = Pages.newInstance({
+      srcPath : templateFile
+    });
+    var arg = {val : undefined};
+    assert.equal(pages.render(arg), '');
+  });
+
+  it('output null', function() {
+    fs.writeFileSync(templateFile, '<?= arg.val ?>');
+    pages = Pages.newInstance({
+      srcPath : templateFile
+    });
+    var arg = {val : null};
+    assert.equal(pages.render(arg), '');
+  });
+
   it('composite template', function() {
     fs.writeFileSync(templateFile,
       '<? if(arg.str1 == arg.str2){ ?><?= arg.str1 ?><? }else{ ?><?= arg.str2 ?><? } ?>');
