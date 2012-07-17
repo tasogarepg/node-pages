@@ -67,7 +67,7 @@ describe('node-pages', function() {
     pages = Pages.newInstance({
       srcPath : templateFile
     });
-    assert.equal(pages.render(), '  ');
+    assert.equal(pages.render(), '\t');
   });
 
   it('output \\r', function() {
@@ -75,7 +75,7 @@ describe('node-pages', function() {
     pages = Pages.newInstance({
       srcPath : templateFile
     });
-    assert.equal(pages.render(), '');
+    assert.equal(pages.render(), '\r');
   });
 
   it('output \\n', function() {
