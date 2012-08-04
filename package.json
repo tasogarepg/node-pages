@@ -1,6 +1,6 @@
 {
   "name": "node-pages",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A simple template engine. Cacheable and Trackable.",
   "keywords": ["template", "view"],
   "author": "tasogarepg <tasogare.pg@gmail.com>",
