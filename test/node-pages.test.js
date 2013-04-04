@@ -194,6 +194,12 @@ describe('node-pages', function() {
       srcPath : templateFile
     });
     assert.equal(pages2.render(), 'first');
+    pages2.clear();
+    fs.writeFileSync(templateFile, 'third');
+    var pages3 = Pages.newInstance({
+      srcPath : templateFile
+    });
+    assert.equal(pages3.render(), 'third');
   });
 
   it('custom tags', function() {
