@@ -4,6 +4,7 @@
   "description": "A simple template engine. Cacheable and Trackable.",
   "keywords": ["template", "view"],
   "author": "tasogarepg <tasogare.pg@gmail.com>",
+  "license": "MIT",
   "homepage": "http://github.com/tasogarepg/node-pages",
   "repository": "git://github.com/tasogarepg/node-pages.git",
   "main": "./lib/node-pages.js",
